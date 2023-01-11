@@ -14,13 +14,15 @@
                 margin: 0px;
                 
             }
-            a{
-                border: 2px;
+            #buttons{
+               
                 padding: 10px 20px;
                 text-decoration: none;
-                border: 2px;
-                background-color: #7F7C82;
-                color: #71C9CE;
+                
+                color: #f5f5f5;
+                border-style: solid;
+                border-width: 1px;
+                border-color: #f5f5f5;
             }  
             img{
                 width: 100%;
@@ -30,25 +32,42 @@
                 margin: 0px;
             }         
             .logo{
-                diplay: inline-block;
+                display: inline-block;
                 position: absolute;
                 left: 30px;
                 top: 20px;
             }
             .login-btn{
-                position: absolute;
+                display: inline-block;
+                position: fixed;
                 right: 120px;
                 top: 20px;
+                
             }
             .signup-btn{
-                position: absolute;
+                display: inline-block;
+                position: fixed;
                 right: 20px;
-                 top: 20px;
+                 top: 20px;     
             }
+            #buttons:hover{
+                color:  #0C0D0E;
+                background-color: #f5f5f5;
+                border-style: solid;
+                border-width: 1px;
+                border-color: #0C0D0E;
+                box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+           
             .Header{
                 height: 80px;
-                background-color: #BE9FE1;
-                position: relative;
+                width: 100%;
+                display: inline-block;
+                background-color: #404258;
+                position: fixed;
+                top: 0px;
+                
+                
             }
             #devclass{
                 width: 100%;
@@ -60,7 +79,7 @@
               
                 height:250px;
                 width: 230px;
-                padding-top: 50px;
+                padding-top: 150px;
   
             }
            
@@ -104,11 +123,14 @@
                 background-size: 100%;
                 background-repeat: no-repeat;   
             }
+            .head1{
+                position: fixed;
+            }
             .bottom-info{
                 width:100%;
                  height: 400px;
                  position: relative;
-                 opacity: 0.75;
+                 
             }
            
             .first{
@@ -118,6 +140,7 @@
                 width: 20%;
                 position: absolute;
                 left: 65px;
+                opacity: 0.85;
                 top: 5%;
             }
             .second{
@@ -126,6 +149,7 @@
                 border-radius: 5px;
                 width: 20%;
                 position: absolute;
+                opacity: 0.85;
                 left: 400px;
                 top: 5%;
             }
@@ -135,6 +159,7 @@
                 border-radius: 5px;
                 width: 20%;
                 position: absolute;
+                opacity: 0.85;
                 left: 700px;
                 top: 5%;
             }
@@ -144,21 +169,73 @@
                 border-radius: 5px;
                 width: 20%;
                 position: absolute;
+                opacity: 0.85;
                 top: 5%;
                 right: 65px;
             }
+            .first:hover{
+               opacity: 0.9;
+                box-shadow: 8px 5px 8px 5px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);            }
+            .second:hover{
+               opacity: 0.9;
+               box-shadow: 8px 5px 8px 5px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }.third:hover{
+               opacity: 0.9;
+             box-shadow: 8px 5px 8px 5px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);               
+            }
+            .forth:hover{
+               opacity: 0.9;
+               box-shadow: 8px 5px 8px 5px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);            }
+            
+            
             .slogan{
                 padding-top: 130px;
                 padding-bottom: 110px;
             }
+            .footer{
+                height: 110px;
+                width: 100%;
+                background-color: #50577A;
+            
+                
+            }
+            .footer-icons{
+                width: 100%;
+                height: 60%;
+            }
+            .copy-right{
+                padding-top: 15px;
+                height: 25px;
+                background-color: #6B72BE;  
+                opacity: 0.55;
+            }
+            .social{
+                display: inline-block;
+                padding-top: 10px;
+                margin-left: 20px;
+                width: 50px;
+                height: 50px;
+                padding-bottom: 10px;  
+            }
+            .social:hover{
+            box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);           
+
+            }
+            .icon{
+                width: 50px;
+                height: 50px;
+                
+            }
         </style>
     </h:head>
-    <div class="Header">    
+    
+    <div class="Header">   
+
         <p class="logo">Melody</p>
-        <a class="login-btn" href="LoginPage.xhtml" >Login</a>
-        <a class="signup-btn" href="RegisterPage.xhtml">Sign Up</a>
-  
+        <a id="buttons" class="login-btn" href="LoginPage.xhtml" >Login</a>
+        <a id="buttons" class="signup-btn" href="RegisterPage.xhtml">Sign Up</a>
         </div>
+        
   
     <h:body>
         <div class="Intro">
@@ -173,15 +250,33 @@
         <div class="bottom-container">
             <h2 class="slogan">There is a plate with your name in it </h2>
             <div class="bottom-info">
-                <div class="first">1</div>
-                <div class="second">2</div>
-                <div class="third">3</div>
-                <div class="forth">4</div>
+                <div class="first">
+                    <h2 class="card"> Our community </h2>
+                </div>
+                <div class="second">
+                    <h2 class="card"> Happy Hours </h2>
+                </div>
+                <div class="third">
+                    <h2 class="card"> Apply For a job </h2>
+                </div>
+                <div class="forth">
+                    <h2 class="card"> Order food </h2>
+                </div>
             </div>
         </div>
         <div class="footer">
+            <div class="footer-icons">
+                <a class="social" href="https://instagram.com/yabu_yb?igshid=NTA5ZTk1NTc=" ><img class="icon" src="Resources/Images/instagram.png" alt="logo"/></a>
+                <a class="social" href="https://github.com/Yabuale" ><img class="icon" src="Resources/Images/github.png" alt="logo"/></a>
+                <a class="social" href="https://www.linkedin.com/"><img class="icon" src="Resources/Images/linkedin-logo.png" alt="logo"/></a>
+                <a class="social" href="https://www.reddit.com/u/yabu_yb?" ><img class="icon" src="Resources/Images/reddit-logo.png" alt="logo"/></a>
+                <a class="social" href="https://www.t.me/Yabu_yb" ><img class="icon" src="Resources/Images/telegram.png" alt="logo"/></a>
+                
+            </div>
             
-            <div class="copy-right"></div>
+            <div class="copy-right">
+                copy right 2023 melody cafe
+            </div>
         </div>
         
     </h:body>
