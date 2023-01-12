@@ -18,19 +18,34 @@
                
                 padding: 10px 20px;
                 text-decoration: none;
-                
                 color: #f5f5f5;
                 border-style: solid;
                 border-width: 1px;
                 border-color: #f5f5f5;
             }  
+            #card-buttons{
+               
+                padding: 10px 20px;
+                text-decoration: none;
+                color: #f5f5f5;
+                border-style: solid;
+                border-width: 1px;
+                border-color: #f5f5f5;
+                position: absolute;
+                bottom: 10px;
+                right: 25%;
+                left: 25%;
+            } 
             img{
                 width: 100%;
                 height:100%;
             }
             h1,h2{
                 margin: 0px;
-            }         
+            }  
+            p{
+                margin: 10px auto; 
+            }
             .logo{
                 display: inline-block;
                 position: absolute;
@@ -51,6 +66,14 @@
                  top: 20px;     
             }
             #buttons:hover{
+                color:  #0C0D0E;
+                background-color: #f5f5f5;
+                border-style: solid;
+                border-width: 1px;
+                border-color: #0C0D0E;
+                box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+            #card-buttons:hover{
                 color:  #0C0D0E;
                 background-color: #f5f5f5;
                 border-style: solid;
@@ -134,8 +157,8 @@
             }
            
             .first{
-                height: 80%;
-                background-color: white;
+                height: 90%;
+                background-color: #50577A;
                 border-radius: 5px;
                 width: 20%;
                 position: absolute;
@@ -144,8 +167,8 @@
                 top: 5%;
             }
             .second{
-                height: 80%;
-                background-color: white;
+                height: 90%;
+                background-color: #50577A;
                 border-radius: 5px;
                 width: 20%;
                 position: absolute;
@@ -154,8 +177,8 @@
                 top: 5%;
             }
             .third{
-                height: 80%;
-                background-color: white;
+                height: 90%;
+                background-color: #50577A;
                 border-radius: 5px;
                 width: 20%;
                 position: absolute;
@@ -164,8 +187,8 @@
                 top: 5%;
             }
             .forth{
-                height: 80%;
-                background-color: white;
+                height: 90%;
+                background-color: #50577A;
                 border-radius: 5px;
                 width: 20%;
                 position: absolute;
@@ -199,6 +222,9 @@
             
                 
             }
+            .cards{
+                color: #f5f5f5; 
+            }
             .footer-icons{
                 width: 100%;
                 height: 60%;
@@ -226,18 +252,33 @@
                 height: 50px;
                 
             }
+            .card-img{
+                width: 80%;
+                height: 60%;
+                background-color: red;
+                margin: 0 auto;
+            }
+            .CARD-IMG{
+                width: 100%;
+                height: 100%;
+            }
+            .CARD-IMG:hover{
+                box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+            }
         </style>
     </h:head>
+    <h:body>
     
-    <div class="Header">   
-
+        
+        
+        <div class="Header">  
         <p class="logo">Melody</p>
-        <a id="buttons" class="login-btn" href="LoginPage.xhtml" >Login</a>
+        <a id="buttons" class="login-btn" href="Loginpage.xhtml" role="button">Login</a>
         <a id="buttons" class="signup-btn" href="RegisterPage.xhtml">Sign Up</a>
         </div>
         
   
-    <h:body>
+    
         <div class="Intro">
         <div class="intro-sub">
          <img class="logo-img" src="Resources/Images/meodyLOgo.png" alt="logo"/>
@@ -250,17 +291,35 @@
         <div class="bottom-container">
             <h2 class="slogan">There is a plate with your name in it </h2>
             <div class="bottom-info">
-                <div class="first">
+                <div class="first cards">
                     <h2 class="card"> Our community </h2>
+                    <div class="card-img"><img class="CARD-IMG" src="Resources/Images/Community.jpg" alt="logo"/></div>
+                    <div class="card-pass"> <p>We don't make your coffee. we make your day.
+                            Sign up and be a part of our lvely community</p></div>
+                    <div class="card-btn"><a id="card-buttons"  href="RegisterPage.xhtml">Sign Up</a></div>
                 </div>
-                <div class="second">
+                <div class="second cards">
                     <h2 class="card"> Happy Hours </h2>
+                    <div class="card-img"> <img class="CARD-IMG" src="Resources/Images/HappyHour.jpg" alt="logo"/></div>
+                    <div class="card-pass"> <p> The best hour is happy hour.
+                     <br></br> Every weekend 6:00 Pm till 8:00 Pm </p>                      
+                    </div>
+                    <div class="card-btn"> <a id="card-buttons"  href="Loginpage.xhtml" role="button">Read More</a> </div>
                 </div>
-                <div class="third">
+                <div class="third cards">
                     <h2 class="card"> Apply For a job </h2>
+                    <div class="card-img"><img class="CARD-IMG" src="Resources/Images/Jobs.jpg" alt="logo"/></div>
+                    <div class="card-pass"> <p> We have some free spots for you.<br></br> Register and work with us </p></div>
+                    <div class="card-btn"><a id="card-buttons" href="Loginpage.xhtml" role="button">Apply</a></div>
                 </div>
-                <div class="forth">
+                <div class="forth cards">
                     <h2 class="card"> Order food </h2>
+                    <div class="card-img"><img class="CARD-IMG" src="Resources/Images/orderfood.jpg" alt="logo"/></div>
+                    <div class="card-pass">
+                        <p> Giving Your Hunger a new option!!<br></br>
+                        Taste that best,its on TIME</p>
+                    </div>
+                    <div class="card-btn"><a id="card-buttons" href="Loginpage.xhtml" role="button">Login</a></div>
                 </div>
             </div>
         </div>

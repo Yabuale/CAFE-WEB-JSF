@@ -1,15 +1,87 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>Melody-Login</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>login page</div>
-    </body>
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Facelet Title</title>
+        <style>
+            body{
+                background-image: url("Resources/Images/Login2-img.jpg");
+                background-size: 100%;
+            }
+            fieldset{
+                border-style: none;
+            }
+            label{
+                margin:10px 10px;|
+            }
+            .div-main{
+                width:65%;
+                height: 700px;
+               
+                position: relative;
+                margin: auto;
+            }
+            .right{
+                width: 50%;
+                height: 100%;
+                position: absolute;
+                background-color: #50577A; 
+                right: 0px;
+                opacity: 0.5;
+            }
+            .left{
+                width: 50%;
+                height: 100%;
+                position: absolute;
+                left: 0px;
+                background-image: url("Resources/Images/Login3-img.jpg");
+                background-size: 100%;
+                opacity: 0.8;
+            }
+            .Button-cmd{
+               
+                padding: 10px 20px;
+                text-decoration: none;
+                color: #f5f5f5;
+                border-style: solid;
+                border-width: 1px;
+                background-color: #50577A;
+            } 
+        
+          
+        </style>
+    </h:head>
+    <h:body>
+        <div class="div-main">
+            <div class="right">
+                <h2>MELODY</h2>
+                 <h:form >
+
+            <fieldset>
+                    <div>
+                        <label for="firstName" class="">User Name:</label>
+                        <h:inputText label="username" id="firstName" class="" value="#{login.user}" a:placeholder="User name..." />
+                        
+                        </div>
+                   <div>
+                        <label for="pass" class="c">Password:</label>
+                        <h:inputSecret id="pass" class="" value="#{login.pwd}" a:placeholder="password..." />
+                        </div>
+                        <h:commandButton class="Button-cmd" value="Login" action="#{login.validateUsernamePassword}" />	   
+              </fieldset>
+        </h:form>
+            
+                <div class="jsf-form">
+                    
+                </div>
+                
+            
+            
+            </div>
+            <div class="left">  </div>
+        </div>
+        
+    </h:body>
 </html>
