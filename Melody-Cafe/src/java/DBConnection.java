@@ -10,13 +10,14 @@ public class DBConnection {
     //  Database credentials
     static final String USER = "MELODY";
     static final String PASS = "admin123";
-    Connection con = null;
+     static Connection con = null;
 
-    public Connection connMethod() throws ClassNotFoundException, SQLException {
+    public static Connection connMethod() throws ClassNotFoundException, SQLException {
         Class.forName(JDBC_DRIVER);
-      
+        
         con = DriverManager.getConnection(DB_URL, USER, PASS);
-
+        
+        
         return con;
     }
 }

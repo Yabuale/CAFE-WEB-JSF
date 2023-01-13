@@ -4,25 +4,20 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Melody-Login</title>
         <style>
             body{
                 background-image: url("Resources/Images/Login2-img.jpg");
                 background-size: 100%;
+                text-align: center;
             }
             fieldset{
                 border-style: none;
             }
             label{
-                margin:10px 10px;|
+                margin:10px 10px;
             }
-            .div-main{
-                width:65%;
-                height: 700px;
-               
-                position: relative;
-                margin: auto;
-            }
+            
             .right{
                 width: 50%;
                 height: 100%;
@@ -30,6 +25,9 @@
                 background-color: #50577A; 
                 right: 0px;
                 opacity: 0.5;
+            }
+            .right:hover{
+                opacity: 0.8;
             }
             .left{
                 width: 50%;
@@ -40,15 +38,63 @@
                 background-size: 100%;
                 opacity: 0.8;
             }
+            .div-main{
+                width:65%;
+                height: 700px;
+               
+                position: relative;
+                margin: auto;
+            }
             .Button-cmd{
                
-                padding: 10px 20px;
+                padding: 20px 70px;
                 text-decoration: none;
                 color: #f5f5f5;
+                margin-bottom: 10px;
                 border-style: solid;
                 border-width: 1px;
                 background-color: #50577A;
+                display: inline-block;
+                text-align: center;
             } 
+            .Button-cmd:hover{
+                color:  #0C0D0E;
+                background-color: #f5f5f5;
+                border-style: solid;
+                border-width: 1px;
+                border-color: #0C0D0E;
+                box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+            .input-txt{
+                width: 200px;
+                color: red;
+                height: 30px;
+                border-radius: 7px;
+            }
+            .login-form{
+               
+                opacity: 10;
+                
+            }
+            .buttons{
+                width: 80%;
+                margin: auto;
+                height: 150px;
+                opacity: 1;
+            }
+            .input{
+                margin: 10px auto;
+            }
+            #register-btn{
+                padding: 20px 60px;
+ 
+            }
+            .melody{
+                width: 100%;
+                height: 30%;
+            }
+
+            
         
           
         </style>
@@ -56,29 +102,31 @@
     <h:body>
         <div class="div-main">
             <div class="right">
+                <div class="melody">
                 <h2>MELODY</h2>
-                 <h:form >
-
-            <fieldset>
-                    <div>
+                </div>
+                 <div class="login-form"> 
+                 <h:form>
+                     
+                <fieldset>
+                    <div class="input">
                         <label for="firstName" class="">User Name:</label>
-                        <h:inputText label="username" id="firstName" class="" value="#{login.user}" a:placeholder="User name..." />
+                        <h:inputText class="input-txt" label="username" id="firstName"   a:placeholder="User name..." />
                         
                         </div>
-                   <div>
+                   <div class="input">
                         <label for="pass" class="c">Password:</label>
-                        <h:inputSecret id="pass" class="" value="#{login.pwd}" a:placeholder="password..." />
+                        <h:inputSecret class="input-txt" id="pass" a:placeholder="password..." />
                         </div>
-                        <h:commandButton class="Button-cmd" value="Login" action="#{login.validateUsernamePassword}" />	   
+                    <div class="buttons">
+                        <h:commandButton class="Button-cmd" value="Login"  />	
+                        <a class="Button-cmd" id="register-btn" href="RegisterPage.xhtml">Sign Up</a>
+                        </div>
               </fieldset>
-        </h:form>
-            
-                <div class="jsf-form">
-                    
+              </h:form>   
+                 </div>
+                <div class="jsf-form">   
                 </div>
-                
-            
-            
             </div>
             <div class="left">  </div>
         </div>
