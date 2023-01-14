@@ -107,44 +107,36 @@
                      
                 <fieldset>
                     <div class="input">
-                        <label for="firstName" class="">User Name:</label>
-                        <h:inputText class="input-txt" label="username" id="firstName"  value="#{register.userName}" a:placeholder="User name..." />
+                        <label for="userName" class="">User Name:</label>
+                        <h:inputText class="input-txt" label="username" id="userName"  value="#{register.userName}" a:placeholder="User name..." />
                         
                         </div>
                     <div class="input">
                         <label for="Name" class="">Name:</label>
-                        <h:inputText class="input-txt" label="Name" id="Name"  value="#{register.name}" a:placeholder="Name..." />
+                        <h:inputText class="input-txt" label="Name" id="Name" value="#{register.name}"  a:placeholder="Name..." />
                         
                         </div>
                     <div class="input">
                         <label for="LName" class="">Last Name:</label>
-                        <h:inputText class="input-txt" label="Last-name" id="LName"  value="#{register.lname}" a:placeholder="Last name..." />
+                        <h:inputText class="input-txt" label="Last-name" id="LName" value="#{register.lname}" a:placeholder="Last name..." />
                         
                         </div>
                     <div class="input">
                         <label for="Email" class="">Email Adress:</label>
-                        <h:inputText class="input-txt" label="Email" id="Email"  value="#{register.email}" a:placeholder="Email..." />
+                        <h:inputText class="input-txt" label="Email" id="Email" value="#{register.email}" a:placeholder="Email..." />
                         
                         </div>
                     <div class="input">
                         <label for="Phone" class="">Phone No:</label>
-                        <h:inputText class="input-txt" label="Phone" id="Phone"  value="#{register.phone}" a:placeholder="Phone..." />
+                        <h:inputText class="input-txt" label="Phone" id="Phone" value="#{register.phone}"  a:placeholder="Phone..." />
                         </div>
                     <div class="input">
                         <label for="Adress" class="">Adress:</label>
-                        <h:inputText class="input-txt" label="Adress" id="Adress"  value="#{register.adress}" a:placeholder="Adress..." />
+                        <h:inputText class="input-txt" label="Adress" id="Adress" value="#{register.adress}"  a:placeholder="Adress..." />
                         </div>
-                    
-                   <div class="input">
-                        <label for="pass" class="c">Password:</label>
-                        <h:inputSecret class="input-txt" id="pass" value="#{register.pwd}" a:placeholder="password..." />
-                        </div>
-                    <div class="input">
-                        <label for="Confirm" class="">Confirm:</label>
-                        <h:inputSecret class="input-txt" id="Confirm" value="#{register.conform}" a:placeholder="Confirm..." />
-                        </div>
+                                      
                     <div class="buttons">
-                        <h:commandButton class="Button-cmd" value="Submit" action="#{register.btn}" onclick="Logout()" />	
+                        <h:commandButton class="Button-cmd" value="Submit" action="#{register.btn()}" />	
                         <a class="Button-cmd" id="register-btn" href="Loginpage.xhtml">Login</a>
                         </div>
               </fieldset>
