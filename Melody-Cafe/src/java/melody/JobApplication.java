@@ -6,6 +6,8 @@ package melody;
 
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
@@ -23,11 +25,11 @@ public class JobApplication {
     private String phone;
     private String adress;
     private String exp;
+    private String sex;
     
-    public JobApplication(){
-        
-    }
-
+    
+    
+    List<String> sexList;
     public String getName() {
         return name;
     }
@@ -75,9 +77,29 @@ public class JobApplication {
     public void setExp(String exp) {
         this.exp = exp;
     }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+    public List<String> getSexList(){
+        return sexList;
+    }
+
+    public void setSexList(List<String> sexList) {
+        this.sexList = sexList;
+    }
+    public JobApplication(){
+       sexList = new ArrayList<>(); 
+       sexList.add("Male");
+       sexList.add("Female");
+    }
     
     public void insert(){
-         String sql="insert into APPICANTS (NAME,FNAME,EMAIL,PHONE,ADRESS,EXP) values ('"+name+"','"+lname+"','"+email+"','"+phone+"','"+adress+"','"+exp+"')";
+         String sql="insert into APPICANTS (NAME,FNAME,EMAIL,PHONE,ADRESS,EXP,SEX) values ('"+name+"','"+lname+"','"+email+"','"+phone+"','"+adress+"','"+exp+"','"+sex+"')";
    
         Statement s5;
         try {
