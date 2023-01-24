@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Melody-Register</title>
+        <style>
+           body{
+                margin: 0px;
+                background-image: url("Resources/Images/Login-img.jpg");
+                background-size: 100%;
+                text-align: center;
+            }
+            fieldset{
+                border-style: none;
+            }
+            .melody{
+                margin: 20px auto ;
+            }
+            h2{
+                margin: 0px;
+            }
+            label{
+                margin:10px 10px;
+            }
+            .container{
+                color: #BF8B67;
+                height: 600px;
+                margin-left: 3%;
+                width: 40%;
+                border-style: solid;
+                margin-top: 20px;
+                border-width: 2px;
+                border-color: #BF8B67;
+                border-radius: 5px;
+                position: relative;
+            }
+            .input-txt{
+                width: 220px;
+                height: 35px;
+                margin-bottom: 10px;
+                border-color:  #BF8B67;
+                color: rgba(255,255,255,0.8);
+                border-radius: 7px;
+                background-color: rgba(218,204,150,0);
+                
+            }
+           
+             
+            
+            .Button-cmd{
+               background-color: rgba(0,0,0,0);
+                padding: 20px 70px;
+                text-decoration: none;
+                color: #f5f5f5;
+                margin-bottom: 10px;
+                border-style: solid;
+                border-width: 2px;
+                border-color: #BF8B67;
+                color: #BF8B67;
+                display: inline-block;
+                margin:auto;
+              
+                
+                text-align: center;
+            } 
+            .Button-cmd:hover{
+                color:  white;
+                background-color: #BF8B67;
+                border-style: solid;
+                
+                box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+            #register-btn{
+                padding: 20px 50px;
+            }
+            .container:hover{
+              background-color: rgba(218,204,150,0.1);
+              box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+            #gender{
+                margin: auto;
+                width: 45%;
+               
+            }
+            #left{
+                position: absolute;
+                
+                display: inline-block;
+                top: 3%;
+                right: 5%;
+                color: #BF8B67;
+                height: 600px;
+                margin-left: 3%;
+                width: 40%;
+                border-style: solid;
+                margin-top: 20px;
+                border-width: 2px;
+                border-color: #BF8B67;
+                border-radius: 5px;
+                
+            }
+            #delete{
+                
+                margin-top: 170px;
+            }
+            
+            
+            
+
+            
+        
+          
+        </style>
+    </h:head>
+    <h:body>
+      
+            <div class="container">
+                <div class="melody">
+                <h2>MELODY</h2>
+                </div>
+                 <div class="login-form"> 
+                 <h:form>
+    
+                <fieldset>
+                    <div class="input">
+                       
+                        <h:inputText class="input-txt" label="username" id="userName"  value="#{addEmp.userName}" a:placeholder="User name..." />
+                        
+                        </div>
+                    <div class="input">
+                       
+                        <h:inputText class="input-txt" label="Name" id="Name"  value="#{addEmp.name}" a:placeholder="Name..." />
+                        
+                        </div>
+                    <div class="input">
+                       
+                        <h:inputText class="input-txt" label="Last-name" id="LName" value="#{addEmp.lname}"  a:placeholder="Last name..." />
+                        
+                        </div>
+                    <div   id="gender">
+                        
+                      
+                        <h:selectOneRadio class="input-txt"  value="#{addEmp.sex}" >
+                             <f:selectItems id="sex" value="#{addEmp.sexList}"/>
+                        </h:selectOneRadio>
+              
+                        </div>
+                    <div class="input">
+                       
+                        <h:inputText class="input-txt" label="Email" id="Email" value="#{addEmp.email}" a:placeholder="Email..." />
+                        
+                        </div>
+                    <div class="input">
+                        
+                        <h:inputText class="input-txt" label="Phone" id="Phone"  value="#{addEmp.phone}" a:placeholder="Phone..." />
+                        </div>
+                    <div class="input">
+                        
+                        <h:inputText class="input-txt" label="Adress" id="Adress"  value="#{addEmp.adress}"  a:placeholder="Adress..." />
+                        </div>
+                    <div class="input">
+                        
+                        <h:inputSecret class="input-txt" id="pass" value="#{addEmp.password}" a:placeholder="password..." />
+                    </div>
+                            
+                             
+                    <div class="buttons">
+                        <h:commandButton class="Button-cmd" value="Submit" action="#{addEmp.addEmp()}" onclick="Logout()" />	
+   
+                        </div>
+                     
+              </fieldset>
+              </h:form>   
+                     </div>
+                 </div>
+        <div  id="left">
+                <div class="melody" >
+                <h2>MELODY</h2>
+                </div>
+                 <div class="login-form"> 
+                 <h:form>
+                     
+                <fieldset>
+                    <div class="input" id="delete">
+                   
+                        <h:inputText class="input-txt" label="username" id="firstName"  value="#{loginValidator.userName}" a:placeholder="User name..." />
+                        
+                        </div>
+                    <div class="buttons">
+                        <h:commandButton class="Button-cmd" value="Delete" action="#{loginValidator.valdate()}"  />	
+                        
+                        </div>
+              </fieldset>
+              </h:form>   
+                 </div>
+            </div>
+
+            
+        <SCRIPT LANGUAGE="JavaScript">
+            function Logout()
+            {
+                var response = confirm('Are you sure ');
+
+                if (response)
+                     alert("Success");
+                else
+                    alert("not inserted.");
+            }
+        </SCRIPT>
+            
+       
+        
+    </h:body>
+</html>
