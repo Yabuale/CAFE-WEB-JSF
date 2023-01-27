@@ -166,7 +166,7 @@ public class AddEmp {
         s5 = DBConnection.connMethod().createStatement();
         s6 = DBConnection.connMethod().createStatement();
         s5.executeQuery(sql);
-          s6.executeQuery(sq2);
+        s6.executeQuery(sq2);
         }
         else{
         String sql="DELETE FROM EMPLOYEE WHERE USERNAME='"+userName+"'";
