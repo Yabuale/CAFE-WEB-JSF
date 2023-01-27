@@ -42,7 +42,8 @@
                 justify-content: space-between;
                 align-content: space-between;
                 border-bottom-left-radius: 5px; 
-                margin-top: 50px;
+                margin-top: 20px;
+                
                 
             }
             .employee{
@@ -54,8 +55,14 @@
              .customer{
                 width:45%;
                 height:50%;
-                
                  margin-right: 60px;
+            }
+            .orders{
+                width:45%;
+                height:150px;
+                margin: auto;
+               
+                
             }
             
             
@@ -73,8 +80,13 @@
         <canvas id="myChart" style="width:200%;"></canvas>
         </div>
         <div class="customer">
-        <canvas id="myChart2"  onload="myFunction2()" style="width:200%;"></canvas>
+        <canvas id="myChart2"   style="width:200%;"></canvas>
         </div>
+        </div>
+        
+        
+        <div class="orders">
+            <canvas id="myChart3"   style="width:200%;"></canvas>
         </div>
  <SCRIPT LANGUAGE="JavaScript">
    
@@ -133,8 +145,39 @@ new Chart("myChart2", {
   }
 });
 }
+function myFunction3() {
+a=50;
+b=100;
+var xValues = ["Male", "Female"];
+var yValues = [a, b];
+var barColors = [
+  "#b91d47",
+  "#00aba9",
 
-window.onload = myFunction2;
+];
+
+new Chart("myChart3", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "Customer"
+    }
+  }
+});
+}
+
+window.onload = function(){
+    myFunction2();myFunction3();
+    };
+
 
 
  </SCRIPT>

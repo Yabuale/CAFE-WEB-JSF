@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Melody-Register</title>
         <style>
@@ -16,7 +17,7 @@
                 border-style: none;
             }
             .melody{
-                margin: 20px auto 170px;
+                margin: 20px auto ;
             }
             h2{
                 margin: 0px;
@@ -79,6 +80,11 @@
               background-color: rgba(218,204,150,0.1);
               box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             }
+            #gender{
+                margin: auto;
+                width: 45%;
+               
+            }
             
 
             
@@ -111,6 +117,14 @@
                         <h:inputText class="input-txt" label="Last-name" id="LName" value="#{register.lname}" a:placeholder="Last name..." />
                         
                         </div>
+                    <div   id="gender">
+                        
+                      
+                        <h:selectOneRadio class="input-txt"  value="#{register.sex}" >
+                             <f:selectItems id="sex" value="#{register.sexList}"/>
+                        </h:selectOneRadio>
+              
+                        </div>
                     <div class="input">
                        
                         <h:inputText class="input-txt" label="Email" id="Email" value="#{register.email}" a:placeholder="Email..." />
@@ -124,9 +138,15 @@
                         
                         <h:inputText class="input-txt" label="Adress" id="Adress" value="#{register.adress}"  a:placeholder="Adress..." />
                         </div>
+                    <div class="input">
+                        
+                        <h:inputSecret class="input-txt" id="pass" value="#{register.password}" a:placeholder="password..." />                        </div>
+                    <div class="input">
+                        
+                        <h:inputSecret class="input-txt" id="conf" value="#{register.conf}" a:placeholder="conform..." />                        </div>
                                       
                     <div class="buttons">
-                        <h:commandButton class="Button-cmd" value="Submit" action="#{register.btn()}" />	
+                        <h:commandButton class="Button-cmd" value="Submit" action="#{register.btn()}" onclick="Logout()" />	
                         <a class="Button-cmd" id="register-btn" href="Loginpage.xhtml">Login</a>
                         </div>
               </fieldset>
@@ -134,6 +154,17 @@
                  </div>
 
             </div>
+        <SCRIPT LANGUAGE="JavaScript">
+            function Logout()
+            {
+                var response = confirm('Are you sure ');
+
+                if (response)
+                     alert("Success");
+                else
+                    alert("not inserted.");
+            }
+        </SCRIPT>
             
        
         

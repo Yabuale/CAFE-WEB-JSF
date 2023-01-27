@@ -17,28 +17,28 @@ import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;  
 import javax.faces.bean.RequestScoped;  
   
-@ManagedBean(name = "product")  
+@ManagedBean(name = "employee")  
 @RequestScoped  
-public class DataTable {    
-public List<Applicant> productsList;  
-public List<Applicant> getProductList() {  
-    productsList = new ArrayList<>(); 
-    String sql="SELECT * FROM APPICANTS";
-   
+public class EmployeeTable {    
+public List<Customer> employeeList;  
+public List<Customer> getEmployeeList() {  
+    employeeList = new ArrayList<>(); 
+    String sql="SELECT * FROM EMPLOYEE";
         Statement s5;
         
     try {
         s5 = DBConnection.connMethod().createStatement();
         ResultSet re = s5.executeQuery(sql);
         while (re.next()) {
+                         String USERNAME = re.getString("USERNAME");
                         String NAME = re.getString("NAME");
                         String FNAME = re.getString("FNAME");
                         String EMAIL = re.getString("EMAIL");
                         String PHONE = re.getString("PHONE");
-                        String ADRESS = re.getString("ADRESS");
-                        String EXP = re.getString("EXP");
+                        String ADRESS = re.getString("ADDRESS");
+                        
                         String SEX = re.getString("SEX");
-    productsList.add(new Applicant(NAME,FNAME,EMAIL,PHONE ,ADRESS,EXP,SEX ));
+                   employeeList.add(new Customer(USERNAME,NAME,FNAME,EMAIL,PHONE ,ADRESS ,SEX ));
 
         }
                         
@@ -52,6 +52,6 @@ public List<Applicant> getProductList() {
    
  
  
-return productsList;  
+return employeeList;  
 }    
 }  

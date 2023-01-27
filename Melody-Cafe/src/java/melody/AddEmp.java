@@ -27,6 +27,8 @@ public class AddEmp {
     private String sex;
     List<String> sexList;
     private String password;
+    private String type;
+    
     
     
 
@@ -108,13 +110,23 @@ public class AddEmp {
         this.password = password;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+    
+    
+
    
 
   
     public void addEmp(){
-        
-      String sql="insert into EMPLOYEE(USERNAME,NAME,FNAME,EMAIL,PHONE,ADDRESS,SEX) values ('"+userName+"','"+name+"','"+lname+"','"+email+"','"+phone+"','"+adress+"','"+sex+"')";
-      String sql2="insert into USERS(NAME,PASSWORD,TYPE) values ('"+name+"','"+password+"','DELIVERY')";
+        if("CUSTOMER".equals(type)){
+      String sql="insert into CSTOMER(USERNAME,NAME,FNAME,EMAIL,PHONE,ADDRESS,SEX) values ('"+userName+"','"+name+"','"+lname+"','"+email+"','"+phone+"','"+adress+"','"+sex+"')";
+      String sql2="insert into USERS(USERNAME,PASSWORD,TYPE) values ('"+userName+"','"+password+"','"+type+"')";
         Statement s5;
         Statement s6;
         try {
@@ -126,8 +138,48 @@ public class AddEmp {
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
         }
+        }
+        else{
+      String sql="insert into EMPLOYEE(USERNAME,NAME,FNAME,EMAIL,PHONE,ADDRESS,SEX) values ('"+userName+"','"+name+"','"+lname+"','"+email+"','"+phone+"','"+adress+"','"+sex+"')";
+      String sql2="insert into USERS(USERNAME,PASSWORD,TYPE) values ('"+userName+"','"+password+"','"+type+"')";
+        Statement s5;
+        Statement s6;
+        try {
+            s5 = DBConnection.connMethod().createStatement();
+            s6 = DBConnection.connMethod().createStatement();
+            s5.executeQuery(sql);
+            s6.executeQuery(sql2);
+            
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
         
    
+    }
+    public void remove() throws SQLException, ClassNotFoundException{
+        if("CUSTOMER".equals(type)){
+        String sql="DELETE FROM CSTOMER WHERE USERNAME='"+userName+"'";
+        String sq2="DELETE FROM USERS WHERE USERNAME='"+userName+"'";
+        Statement s5;
+        Statement s6;
+        s5 = DBConnection.connMethod().createStatement();
+        s6 = DBConnection.connMethod().createStatement();
+        s5.executeQuery(sql);
+          s6.executeQuery(sq2);
+        }
+        else{
+        String sql="DELETE FROM EMPLOYEE WHERE USERNAME='"+userName+"'";
+        String sq2="DELETE FROM USERS WHERE USERNAME='"+userName+"'";
+        Statement s5;
+        Statement s6;
+        s5 = DBConnection.connMethod().createStatement();
+        s6 = DBConnection.connMethod().createStatement();
+          s5.executeQuery(sql);
+          s6.executeQuery(sq2);
+        }
+        
+        
     }
     
     

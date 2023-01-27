@@ -165,6 +165,15 @@
                         
                         <h:inputSecret class="input-txt" id="pass" value="#{addEmp.password}" a:placeholder="password..." />
                     </div>
+                    <div   id="gender">
+                        <h:selectOneRadio value="#{addEmp.type}">
+                    
+                      <f:selectItem  itemValue="ADMIN" itemLabel="ADMIN"/> 
+                    <f:selectItem  itemValue="Delivery" itemLabel="Delivery"/> 
+                    <f:selectItem  itemValue="CUSTOMER" itemLabel="CUSTOMER"/>  
+                </h:selectOneRadio>
+                     </div>
+                    
                             
                              
                     <div class="buttons">
@@ -186,11 +195,19 @@
                 <fieldset>
                     <div class="input" id="delete">
                    
-                        <h:inputText class="input-txt" label="username" id="firstName"  value="#{loginValidator.userName}" a:placeholder="User name..." />
+                        <h:inputText class="input-txt" label="username" id="firstName"  value="#{addEmp.userName}" a:placeholder="User name..." />
                         
                         </div>
+                    
+                    <div   id="gender">
+                    <h:selectOneRadio value="#{addEmp.type}">
+                      <f:selectItem  itemValue="ADMIN" itemLabel="ADMIN"/> 
+                    <f:selectItem  itemValue="Delivery" itemLabel="Delivery"/> 
+                    <f:selectItem  itemValue="CUSTOMER" itemLabel="CUSTOMER"/>  
+                </h:selectOneRadio>
+                     </div>
                     <div class="buttons">
-                        <h:commandButton class="Button-cmd" value="Delete" action="#{loginValidator.valdate()}"  />	
+                        <h:commandButton class="Button-cmd" value="Delete" action="#{addEmp.remove()}"  />	
                         
                         </div>
               </fieldset>

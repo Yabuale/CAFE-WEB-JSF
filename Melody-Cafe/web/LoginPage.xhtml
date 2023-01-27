@@ -96,15 +96,15 @@
                 <fieldset>
                     <div class="input">
                      
-                        <h:inputText class="input-txt" label="username" id="firstName"   a:placeholder="User name..." />
+                        <h:inputText class="input-txt" label="username" id="firstName"  value="#{loginValidator.userName}" a:placeholder="User name..." />
                         
                         </div>
                    <div class="input">
                         
-                        <h:inputSecret class="input-txt" id="pass" a:placeholder="password..." />
+                        <h:inputSecret class="input-txt" id="pass" value="#{loginValidator.password}" a:placeholder="password..." />
                         </div>
                     <div class="buttons">
-                        <h:commandButton class="Button-cmd" value="Login"  />	
+                        <h:commandButton class="Button-cmd" value="Login" action="#{loginValidator.valdate()}"  />	
                         <a class="Button-cmd" id="register-btn" href="AdminPage.xhtml">Sign Up</a>
                         </div>
               </fieldset>

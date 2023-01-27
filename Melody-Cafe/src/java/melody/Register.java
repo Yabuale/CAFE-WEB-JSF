@@ -6,6 +6,8 @@ package melody;
 
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
@@ -22,13 +24,32 @@ public class Register {
     private String email;
     private String phone;
     private String adress;
-   
+    private String sex;
+    List<String> sexList;
+    private String password;
+    private String conf;
+    
 
     
     
-    
+     public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+    public List<String> getSexList(){
+        return sexList;
+    }
+
+    public void setSexList(List<String> sexList) {
+        this.sexList = sexList;
+    }
     public Register(){
-        
+         sexList = new ArrayList<>(); 
+       sexList.add("Male");
+       sexList.add("Female");
     }
 
     public String getUserName() {
@@ -79,19 +100,40 @@ public class Register {
         this.adress = adress;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getConf() {
+        return conf;
+    }
+
+    public void setConf(String conf) {
+        this.conf = conf;
+    }
+     
+
   
-    public void btn(){
+    public String btn(){
         
-      String sql="insert into USERS(USERNAME,NAME,FNAME,EMAIL,PHONE,ADDRESS,ROLE) values ('"+userName+"','"+name+"','"+lname+"','"+email+"','"+phone+"','"+adress+"','USER')";
-   
+      String sql="insert into CSTOMER(USERNAME,NAME,FNAME,EMAIL,PHONE,ADDRESS,SEX) values ('"+userName+"','"+name+"','"+lname+"','"+email+"','"+phone+"','"+adress+"','"+sex+"')";
+      String sql2="insert into USERS(NAME,PASSWORD,TYPE) values ('"+userName+"','"+password+"','CUSTOMER')";
         Statement s5;
+        Statement s6;
         try {
             s5 = DBConnection.connMethod().createStatement();
+            s6 = DBConnection.connMethod().createStatement();
             s5.executeQuery(sql);
+            s6.executeQuery(sql2);
+            
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+        } 
+        return "index.xhtml";
    
     }
     

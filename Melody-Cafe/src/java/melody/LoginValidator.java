@@ -42,7 +42,7 @@ public class LoginValidator{
     }
     public String valdate(){
         
-        String sql="SELECT * FROM USERS WHERE NAME='"+userName+"' AND PASSWORD='"+password+"'";
+        String sql="SELECT * FROM USERS WHERE USERNAME='"+userName+"' AND PASSWORD='"+password+"'";
         Statement s5;
         try {
             s5 = DBConnection.connMethod().createStatement();
