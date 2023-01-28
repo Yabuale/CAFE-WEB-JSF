@@ -36,6 +36,7 @@
                 width: 100%;
                 height: 400px;
                 position: relative;
+                color: red;
                 margin: auto; 
                 display: flex;
                 flex-direction: row;
@@ -64,6 +65,13 @@
                
                 
             }
+            .values{
+                background-color: red;
+                visibility: hidden;
+            }
+            #maleEmp{
+                color: yellow;
+            }
             
             
             </style>
@@ -88,15 +96,28 @@
         <div class="orders">
             <canvas id="myChart3"   style="width:200%;"></canvas>
         </div>
+        <div class="values">
+            hjkhjk
+             <p ><h:outputText id="maleEmp" value="#{stat.male1}"/></p>
+            <p ><h:outputText id="femaleEmp" value="#{stat.female1}"/></p>
+            <p ><h:outputText id="female" value="#{stat.male}"/></p>
+            <p><h:outputText  id="male" value="#{stat.female}"/></p>
+            
+        </div>
  <SCRIPT LANGUAGE="JavaScript">
-   
-a=50;
-b=100;
+let maleEmp=document.getElementById('maleEmp').innerHTML;
+let femaleEmp=document.getElementById('femaleEmp').innerHTML;
+let male=document.getElementById('male').innerHTML;
+let female=document.getElementById('female').innerHTML;
+
+var a=50;
+b=80;
+
 var xValues = ["Male", "Female"];
-var yValues = [a, b];
+var yValues = [maleEmp, femaleEmp];
 var barColors = [
-  "#b91d47",
-  "#00aba9",
+  "#BF8B67",
+  "#DACC96",
 
 ];
 
@@ -118,13 +139,13 @@ new Chart("myChart", {
 });
 
  function myFunction2() {
-a=50;
-b=100;
+var a=male;
+var b=female;
 var xValues = ["Male", "Female"];
-var yValues = [a, b];
+var yValues = [b, a];
 var barColors = [
-  "#b91d47",
-  "#00aba9",
+  "#BF8B67",
+  "#DACC96",
 
 ];
 
@@ -146,8 +167,7 @@ new Chart("myChart2", {
 });
 }
 function myFunction3() {
-a=50;
-b=100;
+
 var xValues = ["Male", "Female"];
 var yValues = [a, b];
 var barColors = [

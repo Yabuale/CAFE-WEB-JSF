@@ -121,7 +121,7 @@ public class Register {
     public String btn(){
         
       String sql="insert into CSTOMER(USERNAME,NAME,FNAME,EMAIL,PHONE,ADDRESS,SEX) values ('"+userName+"','"+name+"','"+lname+"','"+email+"','"+phone+"','"+adress+"','"+sex+"')";
-      String sql2="insert into USERS(NAME,PASSWORD,TYPE) values ('"+userName+"','"+password+"','CUSTOMER')";
+      String sql2="insert into USERS(USERNAME,PASSWORD,TYPE) values ('"+userName+"','"+password+"','CUSTOMER')";
         Statement s5;
         Statement s6;
         try {

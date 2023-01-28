@@ -81,7 +81,7 @@
             }
             
              .Button-cmd{
-               
+                background-color: rgba(2,2,2,0);
                 padding: 20px 70px;
                 text-decoration: none;
                 color: #f5f5f5;
@@ -127,8 +127,9 @@
                 <a class="Button-cmd" href="EmployeeTable.xhtml">Employee</a>
                 </div>
                 <div class="card">  <div class="icons"> <img class="icon-img" src="Resources/Images/Admin2.png" alt="logo"/></div>  
-                <a class="Button-cmd" id="stat" href="StatPage.xhtml">Stat</a>
-                </div>
+                    <h:form>
+                    <h:commandButton class="Button-cmd" value="Submit" action="#{stat.method()}" />   
+                </h:form>  </div>
                 <div class="card">  <div class="icons"> <img class="icon-img" src="Resources/Images/delivery.png" alt="logo"/></div>  
                <a class="Button-cmd"  href="RegisterPage.xhtml">Orders</a>
                 </div>
