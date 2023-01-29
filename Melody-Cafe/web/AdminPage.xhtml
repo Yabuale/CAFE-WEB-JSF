@@ -111,6 +111,28 @@
                 left: 14%; 
             }
             
+            .logout-btn{
+                display: inline-block;
+                position: absolute;
+                margin: 0px;
+                right: 120px;
+                top: 20px;
+                
+            }
+            #buttons{
+                color:  white;
+                background-color: #BF8B67;
+                box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                padding: 10px 20px;
+                text-decoration: none;
+                border-width: 1px;
+                margin: 0px;
+            }  
+            #buttons:hover{
+                color:  white;
+                background-color: #632626;
+                box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
             
             
             
@@ -119,6 +141,7 @@
     <h:body>
         <div class="header">
             <h2 class="Melodyadmin">MELODY-ADMIN</h2>
+            <a id="buttons" class="logout-btn" href="index.xhtml" role="button">Logout</a>
         </div>
         <div class="options">
             
@@ -128,10 +151,10 @@
                 </div>
                 <div class="card">  <div class="icons"> <img class="icon-img" src="Resources/Images/Admin2.png" alt="logo"/></div>  
                     <h:form>
-                    <h:commandButton class="Button-cmd" value="Submit" action="#{stat.method()}" />   
+                    <h:commandButton class="Button-cmd" value="Stat" action="#{stat.method()}" />   
                 </h:form>  </div>
                 <div class="card">  <div class="icons"> <img class="icon-img" src="Resources/Images/delivery.png" alt="logo"/></div>  
-               <a class="Button-cmd"  href="RegisterPage.xhtml">Orders</a>
+               <a class="Button-cmd"  href="Orders.xhtml">Orders</a>
                 </div>
             </div>
             <div class="contan">

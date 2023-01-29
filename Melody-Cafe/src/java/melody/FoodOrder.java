@@ -28,12 +28,31 @@ public class FoodOrder {
     private String s7;
     private String s8;
     private String s9;
+    private String userName;
+    private String adress;
     
           
     public FoodOrder(){
         
         
     }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getAdress() {
+        return adress;
+    }
+
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
+    
 
     public String getS1() {
         return s1;
@@ -111,14 +130,14 @@ public class FoodOrder {
     String chec="";
     public void nullValidator( String s){
         if(s!=null){
-            chec=chec+s;
+            chec=chec+" "+s;
         }
         else{
             chec=chec;
         }
     }
    
-    public void methd2(){
+    public String methd2(){
         nullValidator( s1);
         nullValidator( s2);
         nullValidator( s3);
@@ -132,7 +151,7 @@ public class FoodOrder {
        
      
     
-      String sql2="insert into CHECKS(FOOD) values ('"+chec+"')";
+      String sql2="insert into ORDERS(USERNAME,FOOD,ADRESS,DELIVERY,STATUS) values ('"+userName+"','"+chec+"','"+adress+"','pending...','pendng...')";
         
         Statement s6;
         try {
@@ -144,6 +163,7 @@ public class FoodOrder {
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
         } 
+        return "CustomerPage.xhtml";
         
     }
 

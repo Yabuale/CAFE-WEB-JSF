@@ -160,6 +160,20 @@
                  width: 10px;
                 height: 10px;
             }
+            .username{
+                position:absolute;
+                height: 30px;
+                width: 150px;
+                width: 220px;
+                height: 35px;
+                margin-bottom: 10px;
+                border-color:  #BF8B67;
+                color: rgba(255,255,255,0.8);
+                border-radius: 7px;
+                background-color: rgba(218,204,150,0);
+                right: 400px;
+                top:20px;
+            }
             
             
             
@@ -170,9 +184,9 @@
         <h:form>
         <div class="header">
             <h2 class="Melodyadmin">MELODY-MENU</h2>
-            
-             <h:inputText class="Adresss" label="username" id="userName"   a:placeholder="Your current adress..." />
-             <h:commandButton class="Order" value="Order" action="#{foodOrder.methd2()}" />
+             <h:inputText class="username" label="username"  value="#{foodOrder.userName}"  a:placeholder="user name..." />
+             <h:inputText class="Adresss" label="username" id="userName"  value="#{foodOrder.adress}"  a:placeholder="Your current adress..." />
+             <h:commandButton class="Order" value="Order" action="#{foodOrder.methd2()}" onclick="Logout()"/>
              
             
         </div>
@@ -259,5 +273,16 @@
                 
         </div>
        </h:form>
+        <SCRIPT LANGUAGE="JavaScript">
+            function Logout()
+            {
+                var response = confirm('Are you sure ');
+
+                if (response)
+                     alert("Success");
+                else
+                    alert("not inserted.");
+            }
+        </SCRIPT>
     </h:body>
 </html>

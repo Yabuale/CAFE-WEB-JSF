@@ -102,6 +102,9 @@
             <p ><h:outputText id="femaleEmp" value="#{stat.female1}"/></p>
             <p ><h:outputText id="female" value="#{stat.male}"/></p>
             <p><h:outputText  id="male" value="#{stat.female}"/></p>
+            <p><h:outputText  id="delivered" value="#{stat.delivered}"/></p>
+            <p><h:outputText  id="ontsway" value="#{stat.ontsway}"/></p>
+            <p><h:outputText  id="pending" value="#{stat.pending}"/></p>
             
         </div>
  <SCRIPT LANGUAGE="JavaScript">
@@ -122,7 +125,7 @@ var barColors = [
 ];
 
 new Chart("myChart", {
-  type: "pie",
+  type: "doughnut",
   data: {
     labels: xValues,
     datasets: [{
@@ -150,7 +153,7 @@ var barColors = [
 ];
 
 new Chart("myChart2", {
-  type: "pie",
+  type: "doughnut",
   data: {
     labels: xValues,
     datasets: [{
@@ -167,17 +170,23 @@ new Chart("myChart2", {
 });
 }
 function myFunction3() {
+    
+  let  delivered=document.getElementById('delivered').innerHTML;
+  let  ontsway=document.getElementById('ontsway').innerHTML;
+  let pending=document.getElementById('pending').innerHTML;
+    
 
-var xValues = ["Male", "Female"];
-var yValues = [a, b];
+var xValues = ["pending", "on_the_way","delivered"];
+var yValues = [delivered, ontsway,delivered];
 var barColors = [
-  "#b91d47",
-  "#00aba9",
+  "#BF8B67",
+  "#DACC96",
+  "#9D5353"
 
 ];
 
 new Chart("myChart3", {
-  type: "pie",
+  type: "doughnut",
   data: {
     labels: xValues,
     datasets: [{
@@ -188,7 +197,7 @@ new Chart("myChart3", {
   options: {
     title: {
       display: true,
-      text: "Customer"
+      text: "Delivery status"
     }
   }
 });

@@ -1,7 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
         <title>Melody-Delivery</title>
         <style>
@@ -28,26 +30,172 @@
                 left: 30px;
             }
             .tabledata{
-                width: 85%;
+                width: 80%;
                 height: 300px;
-                background-color: red;
+                
                 position: absolute;
                 left: 0px;
             }
             .buttondiv{
-                width: 10%;
+                width: 20%;
                 height: 300px;
-                background-color: white;
+                
                 position: absolute;
                 right: 0px;
             }
+            .container{
+                color: #BF8B67;
+                height: 600px;
+                margin-left: 3%;
+                width: 40%;
+                border-style: solid;
+                margin-top: 20px;
+                border-width: 2px;
+                border-color: #BF8B67;
+                border-radius: 5px;
+                position: relative;
+            }
+            .input-txt{
+                width: 220px;
+                height: 35px;
+                margin-bottom: 10px;
+                border-color:  #BF8B67;
+                color: rgba(255,255,255,0.8);
+                border-radius: 7px;
+                background-color: rgba(218,204,150,0);
+                
+            }
+            .melody{
+                margin: 20px auto 170px;
+            }
+             
+            
+            .Button-cmd{
+               
+                padding: 20px 70px;
+                text-decoration: none;
+                color: #f5f5f5;
+                margin-bottom: 10px;
+                border-style: solid;
+                border-width: 2px;
+                border-color: #BF8B67;
+                color: #BF8B67;
+                display: inline-block;
+                margin:auto;
+              
+                color:  white;
+                background-color: #BF8B67;
+                border-style: solid;
+                box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                text-align: center;
+            } 
+            .Button-cmd:hover{
+                
+            }
+            
+            
+            
+             table {  
+                
+border-collapse: collapse;  
+width: 100%;  
+}  
+    tr,th, td {  
+color: #632626;
+text-align: left;
+background-color: rgba(218,204,150,0.6);
+padding: 8px;  
+}  
+tr:nth-child(even){
+    background-color: rgba(218,204,150,0.1
+                       )}
+
+
+th {  
+background-color: #9D5353;  
+color: #DACC96;  
+}  .logout-btn{
+                display: inline-block;
+                position: absolute;
+                margin: 0px;
+                right: 120px;
+                top: 20px;
+                
+            }
+            #buttons{
+                color:  white;
+                background-color: #BF8B67;
+                box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                padding: 10px 20px;
+                text-decoration: none;
+                border-width: 1px;
+                margin: 0px;
+            }  
+            #buttons:hover{
+                color:  white;
+                background-color: #632626;
+                box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+            
         </style>
     </h:head>
     <h:body>
           <div class="header">
             <h2 class="Melodyadmin">MELODY-APPLICANTS</h2>
+            <a id="buttons" class="logout-btn" href="index.xhtml" role="button">Logout</a>
         </div>
-        <div class="tabledata"></div>
-        <div class="buttondiv"></div>
+        <div class="tabledata">
+  <h:dataTable value="#{delivery.deliveryList}" var="p">  
+
+    <h:column>  
+<f:facet name="header">USERNAME</f:facet>  
+<h:outputText value="#{p.userName}"/> 
+</h:column>
+    <h:column> 
+<f:facet name="header">FOOD</f:facet>  
+<h:outputText value="#{p.food}"/>  
+</h:column>  
+<h:column>  
+        <f:facet name="header">ADRESS</f:facet>  
+        <h:outputText value="#{p.address}"/>  
+</h:column>  
+<h:column>  
+        <f:facet name="header">DELIVERY</f:facet>  
+<h:outputText value="#{p.delivery}"/>  
+</h:column>
+<h:column>  
+        <f:facet name="header">STATUS</f:facet>  
+<h:outputText value="#{p.status}"/> 
+</h:column>
+
+    </h:dataTable>   
+            
+            
+            
+        </div>
+        <div class="buttondiv">
+            
+            <h:form>
+                     
+                <fieldset>
+                    <div class="input">
+                     
+                        <h:inputText class="input-txt" value="#{delivery2.deliveryGuy}"    a:placeholder="your User name..." />
+                        
+                        </div>
+                     <div class="input">
+                     
+                         <h:inputText class="input-txt"  id="firstName" value="#{delivery2.userUserName}"   a:placeholder="User name..." />
+                        
+                        </div>
+
+                    <div class="buttons">
+                        <h:commandButton class="Button-cmd" value="Deliver" action="#{delivery2.method()}"  />	
+                        </div>
+              </fieldset>
+              </h:form>
+            
+            
+        </div>
     </h:body>
 </html>

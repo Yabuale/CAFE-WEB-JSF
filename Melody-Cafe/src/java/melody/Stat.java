@@ -16,10 +16,14 @@ import javax.faces.bean.ManagedBean;
  */
 @ManagedBean
 public class Stat {
-    int female1=4;
-    int male1=4;
-    int  male=4;
-    int female=4;
+    int female1;
+    int male1;
+    int  male;
+    int female;
+    int pending;
+    int delivered;
+    int ontsway;
+      
     public Stat(){
         
     }
@@ -38,6 +42,18 @@ public class Stat {
 
     public int getFemale() {
         return female;
+    }
+
+    public int getPending() {
+        return pending;
+    }
+
+    public int getDelivered() {
+        return delivered;
+    }
+
+    public int getOntsway() {
+        return ontsway;
     }
     
 
@@ -133,12 +149,75 @@ public class Stat {
 
     
         }
+      public static int pending() throws SQLException, ClassNotFoundException{
+        int i=0;
+
+        
+        String query = "SELECT COUNT(STATUS) FROM ORDERS WHERE STATUS= 'pendng...'";
+         Statement s5;
+          s5 = DBConnection.connMethod().createStatement();
+          ResultSet re = s5.executeQuery(query);
+
+  
+                
+                while (re.next()) {
+                    String s1=re.getString("COUNT(STATUS)");
+                    i=parseInt(s1);
+                }
+            
+        return i;
+
+    
+        }
+       public static int delivered() throws SQLException, ClassNotFoundException{
+        int i=0;
+
+        
+        String query = "SELECT COUNT(STATUS) FROM ORDERS WHERE STATUS= 'DEIVERED'";
+         Statement s5;
+          s5 = DBConnection.connMethod().createStatement();
+          ResultSet re = s5.executeQuery(query);
+
+  
+                
+                while (re.next()) {
+                    String s1=re.getString("COUNT(STATUS)");
+                    i=parseInt(s1);
+                }
+            
+        return i;
+
+    
+        }
+        public static int ontsway() throws SQLException, ClassNotFoundException{
+        int i=0;
+
+        
+        String query = "SELECT COUNT(STATUS) FROM ORDERS WHERE STATUS= 'ON THE WAY'";
+         Statement s5;
+          s5 = DBConnection.connMethod().createStatement();
+          ResultSet re = s5.executeQuery(query);
+
+  
+                
+                while (re.next()) {
+                    String s1=re.getString("COUNT(STATUS)");
+                    i=parseInt(s1);
+                }
+            
+        return i;
+
+    
+        }
      public String method() throws SQLException, ClassNotFoundException{
         
         female1= female1();
         male1=male1();
         male=male();
         female=female(); 
+        pending=pending();
+        delivered=delivered();
+        ontsway=ontsway();
         
         return "StatPage.xhtml";
              
