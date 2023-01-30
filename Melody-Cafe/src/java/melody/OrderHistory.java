@@ -12,34 +12,35 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;  
 import java.util.ArrayList;  
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;  
 import javax.faces.bean.RequestScoped;  
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
   
 @ManagedBean(name = "hystory")  
 @RequestScoped  
 public class OrderHistory {  
-private String userUserName;
 
-
-    public String getUserUserName() {
-        return userUserName;
-    }
-
-    public void setUserUserName(String userUserName) {
-        this.userUserName = userUserName;
-    }
 
     
-    
+     String userName;
+FacesContext facesContext = FacesContext.getCurrentInstance();
+ExternalContext externalContext = facesContext.getExternalContext();
+Map<String,Object> sessionMap = externalContext.getSessionMap();     
+    public OrderHistory(){
+        
+      userName=(String) sessionMap.get("user");  
+    }  
     
     
     
 public List<food> deliveryList;  
 public List<food> getDeliveryList() {  
     deliveryList = new ArrayList<>(); 
-    String sql="SELECT * FROM ORDERS WHERE USERNAME = '"+userUserName+"'";
+    String sql="SELECT * FROM ORDERS WHERE USERNAME = '"+userName+"'";
    
         Statement s5;
         

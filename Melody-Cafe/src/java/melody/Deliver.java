@@ -12,16 +12,27 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;  
 import java.util.ArrayList;  
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;  
 import javax.faces.bean.RequestScoped;  
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
   
 @ManagedBean(name = "delivery2")  
 @RequestScoped  
 public class Deliver {  
 private String userUserName;
-private String deliveryGuy;
+   String userName;
+FacesContext facesContext = FacesContext.getCurrentInstance();
+ExternalContext externalContext = facesContext.getExternalContext();
+Map<String,Object> sessionMap = externalContext.getSessionMap();     
+    public Deliver(){
+        
+      userName=(String) sessionMap.get("user");  
+    }  
+    
 
     public String getUserUserName() {
         return userUserName;
@@ -31,13 +42,7 @@ private String deliveryGuy;
         this.userUserName = userUserName;
     }
 
-    public String getDeliveryGuy() {
-        return deliveryGuy;
-    }
-
-    public void setDeliveryGuy(String deliveryGuy) {
-        this.deliveryGuy = deliveryGuy;
-    }
+   
 
     
     
@@ -45,7 +50,7 @@ private String deliveryGuy;
 public List<food> deliveryList;  
 public List<food> getDeliveryList() {  
     deliveryList = new ArrayList<>(); 
-    String sql="SELECT * FROM ORDERS WHERE USERNAME = '"+userUserName+"'";
+    String sql="SELECT * FROM ORDERS WHERE (USERNAME = '"+userUserName+"' AND STATUS = 'ON THE WAY') ";
    
         Statement s5;
         
@@ -78,7 +83,7 @@ return deliveryList;
 }    
 public String method(){
     
-    String query ="UPDATE ORDERS SET DELIVERY='"+deliveryGuy+"',STATUS= 'ON THE WAY' WHERE USERNAME='"+userUserName+"'";
+    String query ="UPDATE ORDERS SET DELIVERY='"+userName+"',STATUS= 'ON THE WAY' WHERE ( USERNAME= '"+userUserName+"' AND STATUS = 'pendng...' )";
     
     
     Statement s5;

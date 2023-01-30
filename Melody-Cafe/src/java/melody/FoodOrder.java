@@ -7,16 +7,21 @@ package melody;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 
 /**
  *
  * @author hp
  */
 @ManagedBean
+@SessionScoped
 public class FoodOrder {
     
     private String s1;
@@ -28,22 +33,18 @@ public class FoodOrder {
     private String s7;
     private String s8;
     private String s9;
-    private String userName;
+    
     private String adress;
     
-          
+     String userName;
+FacesContext facesContext = FacesContext.getCurrentInstance();
+ExternalContext externalContext = facesContext.getExternalContext();
+Map<String,Object> sessionMap = externalContext.getSessionMap();     
     public FoodOrder(){
         
-        
+      userName=(String) sessionMap.get("user");  
     }
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
 
     public String getAdress() {
         return adress;

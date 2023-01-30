@@ -115,11 +115,34 @@ th {
 background-color: #9D5353;  
 color: #DACC96;  
 }  
+ #buttons{
+                color:  white;
+                background-color: #BF8B67;
+                box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                padding: 10px 20px;
+                text-decoration: none;
+                border-width: 1px;
+                margin: 0px;
+            }  
+            #buttons:hover{
+                color:  white;
+                background-color: #632626;
+                box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+            .logout-btn{
+                display: inline-block;
+                position: absolute;
+                margin: 0px;
+                right: 120px;
+                top: 20px;
+                
+            }
         </style>
     </h:head>
     <h:body>
           <div class="header">
-            <h2 class="Melodyadmin">MELODY-APPLICANTS</h2>
+            <h2 class="Melodyadmin">MELODY-DELIVERY</h2>
+            <a id="buttons" class="logout-btn" href="index.xhtml" role="button">Logout</a>
         </div>
         <div class="tabledata">
   <h:dataTable value="#{delivery2.deliveryList}" var="p">  
