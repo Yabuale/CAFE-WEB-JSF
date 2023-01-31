@@ -28,6 +28,11 @@ public class Register {
     List<String> sexList;
     private String password;
     private String conf;
+    private String message;
+
+    public String getMessage() {
+        return message;
+    }
     
 
     
@@ -119,6 +124,7 @@ public class Register {
 
   
     public String btn(){
+        if(password == null ? conf == null : password.equals(conf)){
         
       String sql="insert into CSTOMER(USERNAME,NAME,FNAME,EMAIL,PHONE,ADDRESS,SEX) values ('"+userName+"','"+name+"','"+lname+"','"+email+"','"+phone+"','"+adress+"','"+sex+"')";
       String sql2="insert into USERS(USERNAME,PASSWORD,TYPE) values ('"+userName+"','"+password+"','CUSTOMER')";
@@ -134,8 +140,10 @@ public class Register {
             Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
         } 
         return "index.xhtml";
-   
-    }
+   }
+ message="invad conform";
+return "Register.xhtml";
+}
     
     
     

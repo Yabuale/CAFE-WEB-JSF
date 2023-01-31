@@ -104,12 +104,12 @@
                 <fieldset>
                     <div class="input">
                        
-                        <h:inputText class="input-txt" label="username" id="userName"  value="#{register.userName}" a:placeholder="User name..." />
+                        <h:inputText class="input-txt" label="username" id="userName"  value="#{register.userName}" a:placeholder="User name..." required="true" validatorMessage="required"/>
                         
                         </div>
                     <div class="input">
                        
-                        <h:inputText class="input-txt" label="Name" id="Name" value="#{register.name}"  a:placeholder="Name..." />
+                        <h:inputText class="input-txt" label="Name" id="Name" value="#{register.name}"  a:placeholder="Name..." required="true" validatorMessage="required" />
                         
                         </div>
                     <div class="input">
@@ -127,23 +127,34 @@
                         </div>
                     <div class="input">
                        
-                        <h:inputText class="input-txt" label="Email" id="Email" value="#{register.email}" a:placeholder="Email..." />
+                        <h:inputText class="input-txt" label="Email" id="Email" value="#{register.email}" a:placeholder="Email..." required="true" validatorMessage="invalid Emailaddress"><f:validateRegex
+    pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" /></h:inputText>
+                        
+                        <h:message for="Email" styleClass="error"/> 
                         
                         </div>
                     <div class="input">
                         
-                        <h:inputText class="input-txt" label="Phone" id="Phone" value="#{register.phone}"  a:placeholder="Phone..." />
+                        <h:inputText class="input-txt" label="Phone" id="Phone" value="#{register.phone}"  a:placeholder="Phone..." required="true" validatorMessage="required" />
                         </div>
                     <div class="input">
                         
-                        <h:inputText class="input-txt" label="Adress" id="Adress" value="#{register.adress}"  a:placeholder="Adress..." />
+                        <h:inputText class="input-txt" label="Adress" id="Adress" value="#{register.adress}"  a:placeholder="Adress..." required="true" validatorMessage="required" />
                         </div>
                     <div class="input">
                         
-                        <h:inputSecret class="input-txt" id="pass" value="#{register.password}" a:placeholder="password..." />                        </div>
+                        <h:inputSecret class="input-txt" id="pass" value="#{register.password}" a:placeholder="password..." required="true" requiredMessage="password must be 8 characters" maxlength="20">
+     <f:validateLength minimum="8" ></f:validateLength></h:inputSecret>
+                    <h:message for="pass" />                        </div>
                     <div class="input">
                         
-                        <h:inputSecret class="input-txt" id="conf" value="#{register.conf}" a:placeholder="conform..." />                        </div>
+                        <h:inputSecret class="input-txt" id="conf" value="#{register.conf}" a:placeholder="conform..." />         
+                    </div>
+                    <div class="input">
+                    
+                        <h:outputText value="#{register.message}"  />   
+                    </div>
+                             
                                       
                     <div class="buttons">
                         <h:commandButton class="Button-cmd" value="Submit" action="#{register.btn()}" onclick="Logout()" />	
