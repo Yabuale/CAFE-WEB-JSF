@@ -1,4 +1,4 @@
 # CAFE-WEB-JSF
-Asimple cafe managment system with Xhtml CSS and jsf
-The page is not responsive to get full experiance please use full screen
+This repository contains a fully functioning Cafe managment web system For managing emloyee informaitin, customer managment, food order and delivery system all in an atttractive UI
+Functionality Requirements
 
